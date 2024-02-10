@@ -25,9 +25,12 @@ public class RentalEntity {
     @Column(name = "itemId", insertable = false, updatable = false)
     private int itemId;
 
+    @Column(name = "startDate")
     private LocalDateTime startDate;
 
+    @Column(name = "endDate")
     private LocalDateTime endDate;
 
+    @Column(name = "status")
     private String status;
 }

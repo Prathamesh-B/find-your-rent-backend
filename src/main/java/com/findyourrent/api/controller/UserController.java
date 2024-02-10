@@ -34,18 +34,18 @@ public class UserController {
         return userService.getUserById(id);
     }
 
-    @PostMapping("/create")
-    public UserEntity createUser(@RequestBody UserEntity user) {
-        return userService.createUser(user);
-    }
+    // @PostMapping("/create")
+    // public UserEntity createUser(@RequestBody UserEntity user) {
+    // return userService.createUser(user);
+    // }
 
-    @PutMapping("/update")
-    public UserEntity updateUser(@RequestBody UserEntity user) {
-        return userService.updateUser(user);
-    }
+    // @PutMapping("/update")
+    // public UserEntity updateUser(@RequestBody UserEntity user) {
+    // return userService.updateUser(user);
+    // }
 
-    @DeleteMapping("/delete/{id}")
-    public void deleteUser(@PathVariable("id") Long id) {
-        userService.deleteUser(id);
-    }
+    // @DeleteMapping("/delete/{id}")
+    // public void deleteUser(@PathVariable("id") Long id) {
+    // userService.deleteUser(id);
+    // }
 }

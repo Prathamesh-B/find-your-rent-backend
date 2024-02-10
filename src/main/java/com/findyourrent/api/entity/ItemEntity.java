@@ -11,10 +11,13 @@ public class ItemEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @Column(name = "title")
     private String title;
 
+    @Column(name = "description")
     private String description;
 
+    @Column(name = "price")
     private float price;
 
     @ManyToOne
@@ -27,6 +30,7 @@ public class ItemEntity {
     @Column(columnDefinition = "TEXT[]") // Adjust for your database
     private String[] photos;
 
+    @Column(name = "isAvailable")
     private boolean isAvailable = true;
 
     @OneToMany(mappedBy = "item")
