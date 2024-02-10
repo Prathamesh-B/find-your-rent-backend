@@ -15,7 +15,7 @@ import com.findyourrent.api.entity.UserEntity;
 import com.findyourrent.api.service.UserService;
 
 @RestController
-@RequestMapping("/api/user")
+@RequestMapping("/api/users")
 public class UserController {
 
     private final UserService userService;

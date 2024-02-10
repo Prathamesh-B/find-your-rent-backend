@@ -15,11 +15,8 @@ public interface UserService {
 
     UserEntity updateUser(UserEntity user);
 
+    UserEntity validateUser(String username, String password);
+
     void deleteUser(Long id);
-    // UserEntity authenticateUser(String username, String password);
-    // UserEntity registerUser(String username, String email, String password);
-    // UserEntity updateUserPassword(String username, String oldPassword, String
-    // newPassword);
-    // UserEntity updateUserEmail(String username, String email);
 
 }

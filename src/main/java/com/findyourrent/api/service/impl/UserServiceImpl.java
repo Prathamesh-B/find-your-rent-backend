@@ -2,6 +2,7 @@ package com.findyourrent.api.service.impl;
 
 import java.util.List;
 
+import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 
 import com.findyourrent.api.entity.UserEntity;
@@ -29,17 +30,28 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserEntity getUserByEmail(String email) {
-        return null;
+        return userRepository.findByEmail(email).orElse(null);
     }
 
     @Override
     public UserEntity createUser(UserEntity user) {
+        String hashedPassword = BCrypt.hashpw(user.getPassword(), BCrypt.gensalt(10));
+        user.setPassword(hashedPassword);
         return userRepository.save(user);
     }
 
     @Override
     public UserEntity updateUser(UserEntity user) {
         return userRepository.save(user);
+    }
+
+    @Override
+    public UserEntity validateUser(String email, String password) {
+        UserEntity user = getUserByEmail(email);
+        if (user != null && BCrypt.checkpw(password, user.getPassword())) {
+            return user;
+        }
+        return null;
     }
 
     @Override

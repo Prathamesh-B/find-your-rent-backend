@@ -1,5 +1,7 @@
 package com.findyourrent.api.entity;
 
+import java.util.List;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -18,6 +20,12 @@ public class UserEntity {
 
     @Column(name = "password")
     private String password;
+
+    @OneToMany(mappedBy = "owner")
+    private List<ItemEntity> items;
+
+    @OneToMany(mappedBy = "renter")
+    private List<RentalEntity> rentals;
 
     public UserEntity() {
     }
@@ -61,9 +69,20 @@ public class UserEntity {
         this.password = password;
     }
 
-    // @OneToMany(mappedBy = "owner")
-    // private List<ItemEntity> items;
+    public List<ItemEntity> getItems() {
+        return items;
+    }
 
-    // @OneToMany(mappedBy = "renter")
-    // private List<RentalEntity> rentals;
+    public void setItems(List<ItemEntity> items) {
+        this.items = items;
+    }
+
+    public List<RentalEntity> getRentals() {
+        return rentals;
+    }
+
+    public void setRentals(List<RentalEntity> rentals) {
+        this.rentals = rentals;
+    }
+
 }
